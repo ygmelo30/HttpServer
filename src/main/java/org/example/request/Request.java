@@ -1,4 +1,4 @@
-package org.example.lessonFour;
+package org.example.request;
 
 
 import org.example.httpserver.BadRequestException;
@@ -39,6 +39,7 @@ public class Request {
             return 0;
         }
         String[] lines = buffer.substring(0, index).split("\r\n");
+
         if (lines.length == 0 || lines[0].isEmpty()) {
             throw new BadRequestException("Empty request");
         }
@@ -55,11 +56,11 @@ public class Request {
         String httpVersion = parts[2];
         String version = httpVersion.substring("HTTP/".length());
 
-        if(RequestParser.validateRequestLine(method, requestTarget, httpVersion, version)) {
+        if(RequestParser.validateRequestLine(method, httpVersion, version)) {
             requestLine.setMethod(method);
             requestLine.setRequestTarget(requestTarget);
             requestLine.setHttpVersion(version);
-        } else {
+        }  else {
             throw new BadRequestException("Invalid Request Line.");
         }
         int consumed = index + 2;
@@ -206,7 +207,6 @@ public class Request {
 
     public StringBuilder printRequest () {
         StringBuilder formattedRequest = new StringBuilder();
-        formattedRequest.append("hiii :3\n");
         formattedRequest.append("REQUEST LINE:\n");
         formattedRequest.append("Request Target: " + this.requestLine.getRequestTarget() +"\r\n");
         formattedRequest.append("Http Version: " + this.requestLine.getHttpVersion() + "\r\n");

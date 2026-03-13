@@ -8,7 +8,6 @@ public class HandlerError {
         this.statusCode = statusCode;
         this.message = message;
     }
-
     public int getStatusCode() {
         return statusCode;
     }

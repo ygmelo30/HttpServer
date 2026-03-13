@@ -1,4 +1,4 @@
-package org.example.lessonFour;
+package org.example.request;
 
 public enum ParseState {
     INITIALIZED,

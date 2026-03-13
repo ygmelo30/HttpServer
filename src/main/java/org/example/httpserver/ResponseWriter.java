@@ -1,6 +1,6 @@
 package org.example.httpserver;
 
-import org.example.lessonFour.Request;
+import org.example.request.Request;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -13,8 +13,8 @@ public class ResponseWriter {
         outputStream.write(response);
         outputStream.flush();
     }
-    public static void writeGoodVideoResponse (OutputStream outputStream, byte[] body) throws IOException {
-        byte[] response = ResponseFactory.generateVideoResponse(body);
+    public static void writeGoodSpecialEndpointResponse (OutputStream outputStream, byte[] body, String contentType) throws IOException {
+        byte[] response = ResponseFactory.generateSpecialEndpointResponse(body, contentType);
         outputStream.write(response);
         outputStream.flush();
     }
@@ -49,6 +49,5 @@ public class ResponseWriter {
 
         outputStream.write(response);
         outputStream.flush();
-
     }
 }

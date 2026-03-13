@@ -1,4 +1,4 @@
-package org.example.lessonFour;
+package org.example.request;
 
 import java.util.HashMap;
 import java.util.Map;

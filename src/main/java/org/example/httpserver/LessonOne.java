@@ -1,8 +1,6 @@
-package org.example.lessontwo;
-import org.example.httpserver.BadRequestException;
-import org.example.lessonFour.Request;
-import org.example.lessonFour.RequestParser;
-import org.example.lessonone.LessonFive;
+package org.example.httpserver;
+import org.example.request.Request;
+import org.example.request.RequestParser;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -17,15 +15,8 @@ public class LessonOne {
                 System.out.println("Waiting for a client...");
                 var client = serverSocket.accept();
                 System.out.println("Server has started.");
-                //var clientInput = new LessonFive();
-                //clientInput.getLinesChannel(client.getInputStream());
                 Request req = RequestParser.requestFromInputStream(client.getInputStream());
 
-//                for (String line : clientInput.getLinesChannel(client.getInputStream())) {
-//                    if(line != null) {
-//                        System.out.println("Got: " + line);
-//                    }
-//                }
                 System.out.println(req.getRequestLine().getRequestTarget());
                 System.out.println(req.getRequestLine().getHttpVersion());
                 System.out.println(req.getHeaders().getHeader("host"));
@@ -36,10 +27,9 @@ public class LessonOne {
                 System.out.println("Server has been closed.");
             }
         } catch (IOException e) {
-            System.out.println("eek " + e.getMessage());
             throw new RuntimeException();
         } catch (BadRequestException e) {
-            throw new RuntimeException(e);
+            System.out.println("Bad request");
         }
     }
 

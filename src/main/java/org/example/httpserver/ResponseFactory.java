@@ -6,7 +6,6 @@ public class ResponseFactory {
     public static byte[] generateGoodResponse (String body) {
        byte[] bodyBytes = body.getBytes(StandardCharsets.UTF_8);
 
-
         String headers =
                 "HTTP/1.1 200 OK\r\n" +
                         "Content-Type: text/plain\r\n" +
@@ -35,11 +34,11 @@ public class ResponseFactory {
         byte[] response = headers.getBytes();
         return response;
     }
-    public static byte[] generateVideoResponse (byte[] body) {
+    public static byte[] generateSpecialEndpointResponse (byte[] body, String contentType) {
 
         String headers =
                 "HTTP/1.1 200 OK\r\n" +
-                        "Content-Type: video/mp4\r\n" +
+                        "Content-Type: " + contentType + "\r\n" +
                         "Content-Length: " + body.length + "\r\n" +
                         "Connection: close\r\n" +
                         "\r\n";
@@ -51,6 +50,7 @@ public class ResponseFactory {
         System.arraycopy(body, 0, response, headerBytes.length, body.length);
         return response;
     }
+
     public static byte[] generateClientError (String body) {
         byte[] bodyBytes = body.getBytes(StandardCharsets.UTF_8);
 
