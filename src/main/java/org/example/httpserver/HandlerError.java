@@ -4,7 +4,7 @@ public class HandlerError {
     private final int statusCode;
     private final String message;
 
-    HandlerError(int statusCode, String message) {
+    public HandlerError(int statusCode, String message) {
         this.statusCode = statusCode;
         this.message = message;
     }

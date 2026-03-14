@@ -1,5 +1,6 @@
 package org.example.httpserver;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -12,13 +13,12 @@ public class VideoReader {
         byte[] body = readVideoBytes(path);
         ResponseWriter.writeGoodSpecialEndpointResponse(out, body, contentType);
     }
-    private byte[] readVideoBytes(String path) throws IOException, URISyntaxException {
-        URL resourceUrl = this.getClass().getResource(path + ".mp4");
-        if (resourceUrl == null) {
+    private byte[] readVideoBytes(String path) throws IOException{
+        InputStream stream = getClass().getResourceAsStream(path + ".mp4");
+        if (stream == null) {
             throw new RuntimeException("Resource not found!");
         }
-        Path videoPath = Paths.get(resourceUrl.toURI());
-        byte[] data = Files.readAllBytes(videoPath);
+        byte[] data = stream.readAllBytes();
         return data;
     }
 }

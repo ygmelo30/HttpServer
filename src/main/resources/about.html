@@ -1,34 +1,62 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <title>About This Server</title>
 </head>
 <body>
 <h1>About My HTTP Server</h1>
-
 <p>
-  This website is served by a custom HTTP server written in Java.
+  This website is served by a custom lightweight HTTP server written in Java.
   The server handles HTTP requests, parses request lines and headers,
   routes endpoints, and generates responses without using any web framework.
 </p>
-
 <h2>Features</h2>
 <ul>
   <li>Custom HTTP request parser</li>
   <li>Routing system for endpoints</li>
-  <li>Special endpoints like /httpbin and /video</li>
+  <li>Special endpoints like /httpbin, /video/*, /static/*</li>
   <li>Static file serving</li>
   <li>Multithreaded request handling</li>
 </ul>
-
+<h2>Explaining Special Endpoints</h2>
 <p>
-  This project was built as a learning exercise to better understand
-  how web servers, HTTP requests, and networking work under the hood.
+  There are three variations of special endpoints. These include /httpbin/stream/n (the max the server can handle seems to be about ~30),
+  /video/vim, /video/brunson, /static/index.html, /static/about.html. The /httpbin/stream/n endpoint sends a proxy request to https://httpbin.org/,
+  and the server responds with the data via chunked transfer encoding. The /video endpoints sends a video back to the client, they are read in
+  one chunk fully in memory. The /static endpoints are similar, they're static html files which are also read in memory and sent. Both the videos
+  and files are stored in the server.
 </p>
-
+<h2>Design</h2>
 <p>
-  <a href="/">Back to Home</a>
+  The design of this server was to meant to emulate the sort of web servers and frameworks such as NGINX or Spring Boot. For example, NGINX uses a predefined config file called mime.types
+  which maps a files extension to its corresponding mime type. I implemented this as a static field in my StaticFileEndpoint, which utilizes a map data structure
+  to determine the mime type. There are 3 main components for interpreting and responding to a request, it goes through the Server -> Response Handler -> Response Writer. The server receives the connection
+  and delegates request parsing to a request parser component. It then delegates to the response handler which handles how to interpret the request and deals with special endpoints, and this uses the response writer which
+  writes the actual bytes to the outputstream. The special endpoints are stored in a Special Endpoint Registry class that's configured during start up of the server. The user defines the router map which allows you to
+  customize how certain endpoints are interpreted, as you can see I specified the /yourproblem and /myproblem endpoints to return  400 and 500 responses, respectively.
+</p>
+<h2>How to Run</h2>
+<p>
+  To run via docker use these commands:
+</p>
+<ul>
+  <li>mvn clean package</li>
+  <li>docker build -t imagename:tag .</li>
+  <li>docker run -p 5000:5000 imagename:tag</li>
+</ul>
+<p>
+  To run via maven use these commands:
+</p>
+<ul>
+  <li>mvn clean package</li>
+  <li>java -jar target/httpserver-1.0-SNAPSHOT.jar</li>
+</ul>
+<h2>Links</h2>
+<p>
+  <a href="/static/index.html">Back to Home</a>
+</p>
+<p>
+  <a href="https://github.com/ygmelo30/HttpServer">Github Repo</a>
 </p>
 
 </body>
