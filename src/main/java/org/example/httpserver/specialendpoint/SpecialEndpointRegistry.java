@@ -1,4 +1,6 @@
-package org.example.httpserver;
+package org.example.httpserver.specialendpoint;
+
+import org.example.httpserver.specialendpoint.SpecialEndpoint;
 
 import java.util.ArrayList;
 import java.util.List;

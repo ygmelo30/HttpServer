@@ -1,5 +1,8 @@
-package org.example.httpserver;
+package org.example.httpserver.response;
 
+import org.example.httpserver.server.HandlerError;
+import org.example.httpserver.server.RouterMap;
+import org.example.httpserver.specialendpoint.*;
 import org.example.request.Request;
 
 import java.io.ByteArrayOutputStream;

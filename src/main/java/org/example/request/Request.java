@@ -1,7 +1,7 @@
 package org.example.request;
 
 
-import org.example.httpserver.BadRequestException;
+import org.example.httpserver.exception.BadRequestException;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;

@@ -1,10 +1,12 @@
-package org.example.httpserver;
+package org.example.httpserver.specialendpoint;
 
+import org.example.httpserver.server.HandlerError;
+import org.example.httpserver.specialendpoint.reader.VideoReader;
+import org.example.httpserver.response.ResponseHandler;
 import org.example.request.Request;
 
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.Map;
 
 public class VideoEndpoint implements SpecialEndpoint {
     private ResponseHandler responseHandler = new ResponseHandler();

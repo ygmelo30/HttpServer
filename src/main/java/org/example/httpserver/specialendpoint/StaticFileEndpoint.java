@@ -1,12 +1,15 @@
-package org.example.httpserver;
+package org.example.httpserver.specialendpoint;
 
+import org.example.httpserver.specialendpoint.reader.FileReader;
+import org.example.httpserver.server.HandlerError;
+import org.example.httpserver.response.ResponseHandler;
 import org.example.request.Request;
 
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Map;
 
-public class StaticFileEndpoint implements SpecialEndpoint{
+public class StaticFileEndpoint implements SpecialEndpoint {
     private static final Map<String, String> MIME_TYPES = Map.of(
             "html", "text/html",
             "css", "text/css",

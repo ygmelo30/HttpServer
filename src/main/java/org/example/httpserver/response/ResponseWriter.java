@@ -1,5 +1,6 @@
-package org.example.httpserver;
+package org.example.httpserver.response;
 
+import org.example.httpserver.server.HandlerError;
 import org.example.request.Request;
 
 import java.io.IOException;

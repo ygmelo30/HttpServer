@@ -1,5 +1,7 @@
-package org.example.httpserver;
+package org.example.httpserver.specialendpoint;
 
+import org.example.httpserver.response.ResponseHandler;
+import org.example.httpserver.specialendpoint.SpecialEndpoint;
 import org.example.request.Request;
 
 import java.io.OutputStream;

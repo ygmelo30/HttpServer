@@ -1,8 +1,7 @@
-package org.example.httpserver;
+package org.example.httpserver.server;
 
 import org.example.request.Request;
 
-import java.io.IOException;
 import java.io.OutputStream;
 
 @FunctionalInterface

@@ -1,9 +1,12 @@
-package org.example.httpserver;
+package org.example.httpserver.server;
 
+import org.example.httpserver.exception.BadRequestException;
+import org.example.httpserver.response.ResponseHandler;
+import org.example.httpserver.server.HandlerError;
+import org.example.httpserver.server.RouterMap;
 import org.example.request.Request;
 import org.example.request.RequestParser;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.ServerSocket;

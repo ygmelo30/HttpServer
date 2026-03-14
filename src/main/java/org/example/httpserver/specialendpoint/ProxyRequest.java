@@ -1,4 +1,7 @@
-package org.example.httpserver;
+package org.example.httpserver.specialendpoint;
+
+import org.example.httpserver.response.ResponseFactory;
+import org.example.httpserver.response.ResponseWriter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

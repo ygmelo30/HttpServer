@@ -1,4 +1,7 @@
-package org.example.httpserver;
+package org.example.httpserver.server;
+
+import org.example.httpserver.server.Handler;
+import org.example.httpserver.server.HandlerError;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

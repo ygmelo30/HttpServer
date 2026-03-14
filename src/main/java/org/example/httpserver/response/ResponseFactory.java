@@ -1,4 +1,4 @@
-package org.example.httpserver;
+package org.example.httpserver.response;
 
 import java.nio.charset.StandardCharsets;
 

@@ -1,4 +1,4 @@
-package org.example.httpserver;
+package org.example.httpserver.specialendpoint;
 
 import org.example.request.Request;
 

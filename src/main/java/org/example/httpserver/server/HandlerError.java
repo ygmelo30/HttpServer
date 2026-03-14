@@ -1,4 +1,4 @@
-package org.example.httpserver;
+package org.example.httpserver.server;
 
 public class HandlerError {
     private final int statusCode;

@@ -1,8 +1,8 @@
 package org.example;
 
-import org.example.httpserver.HandlerError;
-import org.example.httpserver.RouterMap;
-import org.example.httpserver.Server;
+import org.example.httpserver.server.HandlerError;
+import org.example.httpserver.server.RouterMap;
+import org.example.httpserver.server.Server;
 
 
 public class Main {

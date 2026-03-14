@@ -1,8 +1,7 @@
 package org.example.request;
 
-import org.example.httpserver.BadRequestException;
+import org.example.httpserver.exception.BadRequestException;
 
-import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.io.InputStream;
 
