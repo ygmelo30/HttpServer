@@ -7,6 +7,42 @@ This project was built to better understand how web servers, networking, and the
 
 ---
 
+# Screenshots
+## Regular Endpoint:
+![Regular Endpoint](docs/images/regular_endpoint.png)
+
+## Special Endpoint:
+![Index Endpoint](docs/images/index_endpoint.png)
+
+---
+
+# Running the Server
+
+## Run with Docker
+
+```bash
+mvn clean package
+docker build -t imagename:tag .
+docker run -p 5000:5000 imagename:tag
+
+Once running, open:
+
+http://localhost:5000
+Run with Maven
+mvn clean package
+java -jar target/httpserver-1.0-SNAPSHOT.jar
+
+Then visit:
+
+http://localhost:5000
+Project Links
+
+Home Page:
+
+/static/index.html
+```
+
+
 # Features
 
 - Custom HTTP request parser
@@ -124,30 +160,3 @@ Example endpoints included in the project:
 Special endpoints are managed through a `SpecialEndpointRegistry` class.
 
 This registry is configured during server startup and allows the server to dynamically determine which handler should process specific endpoint patterns.
-
----
-
-# Running the Server
-
-## Run with Docker
-
-```bash
-mvn clean package
-docker build -t imagename:tag .
-docker run -p 5000:5000 imagename:tag
-
-Once running, open:
-
-http://localhost:5000
-Run with Maven
-mvn clean package
-java -jar target/httpserver-1.0-SNAPSHOT.jar
-
-Then visit:
-
-http://localhost:5000
-Project Links
-
-Home Page:
-
-/static/index.html
