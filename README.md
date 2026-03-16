@@ -131,6 +131,7 @@ Server → ResponseHandler → ResponseWriter
 ### Server
 - Accepts incoming socket connections
 - Delegates HTTP parsing to a request parser
+- Assigns a virtual thread per request being processed to allow for a concurrant workflow and design. 
 
 ### ResponseHandler
 - Interprets the request
